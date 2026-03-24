@@ -9,7 +9,7 @@ import os  # noqa
 
 from .contrib import *  # noqa
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 ADMINS = (
     ('Dimas Ciputra', 'dimas@kartoza.com'),
 )

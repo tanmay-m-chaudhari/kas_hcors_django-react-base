@@ -16,13 +16,16 @@ LANGUAGE_CODE = 'en-us'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
+# noinspection PyUnresolvedReferences
 USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
+# noinspection PyUnresolvedReferences
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
+# noinspection PyUnresolvedReferences
 USE_TZ = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -62,6 +65,7 @@ CACHE_MIDDLEWARE_KEY_PREFIX = os.getenv(
     'COMPOSE_PROJECT_NAME', 'kartoza_django_project')
 
 MIDDLEWARE = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -126,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'django.contrib.messages',
+    'corsheaders',
 )
 
 SITE_ID = 1
@@ -147,3 +152,5 @@ CACHES = {
 
 LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
+
+CORS_ALLOW_ALL_ORIGINS = True
